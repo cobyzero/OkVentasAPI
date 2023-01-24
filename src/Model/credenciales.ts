@@ -16,8 +16,12 @@ const Crecenciales = sequelize.define(
         type: DataTypes.STRING,
     },
     password: {
-        type: DataTypes.STRING
-    }
+        type: DataTypes.STRING,
+    },
+    name:{
+        type: DataTypes.STRING,
+    },
+
 
 }
 );
