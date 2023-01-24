@@ -1,11 +1,11 @@
 import { expressStart } from "./express";
-import { databaseConnect } from "./database";
+import { sequelize } from "./Database/database";
+import "./Model/credenciales";
+import "./Model/publicaciones";
+async function main() {
 
-async function main(){
-
-    databaseConnect();
-
-    expressStart(80);
+   await sequelize.sync({force:false});
+   expressStart(80);
 }
 
 

@@ -1,15 +1,14 @@
 import express = require("express");
 import morgan = require('morgan');
-import { routerHome } from "./Router/homeRouter";
+import { router } from "./Routes/usersRoutes";
+
 const app = express();
 
-app.use(express.text());
-
-app.use(express.json());
+app.use(express.json()); 
 app.use(morgan("dev"));
 
 /* Rutas */
-app.use(routerHome);
+app.use(router);
 
 
 function expressStart(port: number) {
