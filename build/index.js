@@ -13,6 +13,7 @@ const express_1 = require("./express");
 const database_1 = require("./Database/database");
 require("./Model/credenciales");
 require("./Model/publicaciones");
+require("./Model/categorias");
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         yield database_1.sequelize.sync({ force: false });
