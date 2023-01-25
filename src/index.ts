@@ -6,7 +6,10 @@ import "./Model/categorias";
 
 async function main() {
 
-   await sequelize.sync({force:false});
+   await sequelize.sync({
+      force: false,
+      
+   });
    expressStart(80);
 }
 

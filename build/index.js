@@ -16,7 +16,9 @@ require("./Model/publicaciones");
 require("./Model/categorias");
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
-        yield database_1.sequelize.sync({ force: false });
+        yield database_1.sequelize.sync({
+            force: false,
+        });
         (0, express_1.expressStart)(80);
     });
 }

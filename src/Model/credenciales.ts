@@ -18,20 +18,21 @@ const Crecenciales = sequelize.define(
     password: {
         type: DataTypes.STRING,
     },
-    name:{
+    name: {
         type: DataTypes.STRING,
     },
-
-
+    foto: {
+        type: DataTypes.STRING
+    }
 }
 );
 
-Crecenciales.hasMany(Publicaciones,{
+Crecenciales.hasMany(Publicaciones, {
     foreignKey: "CredencialesId",
     sourceKey: "id"
 });
 
-Publicaciones.belongsTo(Crecenciales,{
+Publicaciones.belongsTo(Crecenciales, {
     foreignKey: "CredencialesId",
     targetKey: "id"
 });

@@ -19,6 +19,8 @@ const Publicaciones = sequelize.define("publicaciones",{
     imagen:{
         type: DataTypes.STRING
     }
+
+    
 });
 
 export { Publicaciones };
