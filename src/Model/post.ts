@@ -1,26 +1,26 @@
 import { sequelize } from "../Database/database";
 import { DataTypes } from "sequelize";
 
-const Publicaciones = sequelize.define("publicaciones",{
-    id:{
+const Post = sequelize.define("Post",{
+    postId:{
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
 
-    nombre:{
+    postName:{
         type: DataTypes.STRING,
     },
 
-    descripcion:{
+    postDescription:{
         type: DataTypes.STRING
     },
 
-    imagen:{
+    postImage:{
         type: DataTypes.STRING
     }
 
     
 });
 
-export { Publicaciones };
+export { Post };

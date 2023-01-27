@@ -1,11 +1,11 @@
 import express from 'express';
-import { Crecenciales } from '../Model/credenciales';
-import { category } from '../Model/categorias';
-import { Publicaciones } from '../Model/publicaciones';
+import { Users } from '../Model/users';
+import { Categories } from '../Model/categories';
+import { Post } from '../Model/post';
 
 export const getCredenciales = async (req: express.Request, res: express.Response) => {
 
-    const datos = await Crecenciales.findByPk(req.params.id);
+    const datos = await Users.findByPk(req.params.id);
 
     if (datos == null) {
         res.sendStatus(404);
@@ -19,19 +19,19 @@ export const createCategory = async (req: express.Request, res: express.Response
     try {
         const json = JSON.parse(req.body);
 
-        const { nombre, imagen } = json;
+        const { categoriesName, categoriesImage } = json;
 
-        await category.create({
-            nombre,
-            imagen
+        await Categories.create({
+            categoriesName,
+            categoriesImage
         });
     } catch (error) {
 
-        const { nombre, imagen } = req.body;
+        const { categoriesName, categoriesImage } = req.body;
 
-        await category.create({
-            nombre,
-            imagen
+        await Categories.create({
+            categoriesName,
+            categoriesImage
         });
     }
 
@@ -41,7 +41,7 @@ export const createCategory = async (req: express.Request, res: express.Response
 
 export const getCategory = async (req: express.Request, res: express.Response) => {
 
-    const data = await category.findAll();
+    const data = await Categories.findAll();
 
     if (data == null) {
         res.sendStatus(404);
@@ -54,7 +54,7 @@ export const getCategory = async (req: express.Request, res: express.Response) =
 
 export const getPost = async (req: express.Request, res: express.Response) => {
 
-    const data = await Publicaciones.findAll();
+    const data = await Post.findAll();
 
     if (data == null) {
         res.sendStatus(404);
@@ -69,23 +69,23 @@ export const createPost = async (req: express.Request, res: express.Response) =>
     try {
         const json = JSON.parse(req.body);
 
-        const { nombre, descripcion, imagen, CredencialesId } = json;
+        const { postName, postDescription, postImage, usersId } = json;
 
-        await Publicaciones.create({
-            nombre,
-            descripcion,
-            imagen,
-            CredencialesId
+        await Post.create({
+            postName,
+            postDescription,
+            postImage,
+            usersId
         });
     } catch (error) {
 
-        const { nombre, descripcion, imagen, CredencialesId } = req.body;
+        const {  postName, postDescription, postImage, usersId  } = req.body;
 
-        await Publicaciones.create({
-            nombre,
-            descripcion,
-            imagen,
-            CredencialesId
+        await Post.create({
+            postName,
+            postDescription,
+            postImage,
+            usersId
         });
     }
 

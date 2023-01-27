@@ -1,8 +1,8 @@
 import { expressStart } from "./express";
 import { sequelize } from "./Database/database";
-import "./Model/credenciales";
-import "./Model/publicaciones";
-import "./Model/categorias";
+import "./Model/users";
+import "./Model/post";
+import "./Model/categories";
 
 async function main() {
 

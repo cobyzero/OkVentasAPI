@@ -1,29 +1,29 @@
 import express from "express";
-import { Crecenciales } from "../Model/credenciales";
+import { Users } from "../Model/users";
 
 export const loginUser = async (req: express.Request, res: express.Response) => {
 
     try {
         const json = JSON.parse(req.body);
-        const { username, password } = json;
+        const { usersUsername, usersPassword } = json;
 
-        const project = await Crecenciales.findOne({ where: { username, password } });
+        const project = await Users.findOne({ where: { usersUsername, usersPassword } });
         if (project == null) {
             console.log('Not found!');
             res.sendStatus(404);
         } else {
-            res.json(project.getDataValue("id"));
+            res.json(project.getDataValue("usersId"));
         }
     } catch (error) {
 
-        const { username, password } = req.body;
+        const { usersUsername, usersPassword } = req.body;
 
-        const project = await Crecenciales.findOne({ where: { username, password } });
+        const project = await Users.findOne({ where: { usersUsername, usersPassword } });
         if (project == null) {
             console.log('Not found!');
             res.sendStatus(404);
         } else {
-            res.json(project.getDataValue("id"));
+            res.json(project.getDataValue("usersId"));
         }
     }
 };
@@ -31,14 +31,14 @@ export const loginUser = async (req: express.Request, res: express.Response) => 
 
 export const registerUser = async (req: express.Request, res: express.Response) => {
 
-    const { username, email, password, name, foto } = req.body;
+    const { usersUsername, usersEmail, usersPassword, usersName, usersImage } = req.body;
 
-    await Crecenciales.create({
-        username,
-        email,
-        password,
-        name,
-        foto
+    await Users.create({
+        usersUsername,
+        usersEmail,
+        usersPassword,
+        usersName,
+        usersImage
     });
     console.debug(req.body);
     res.sendStatus(200);

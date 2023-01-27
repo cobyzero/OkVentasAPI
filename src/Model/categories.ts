@@ -1,20 +1,20 @@
 import { DataType, DataTypes } from "sequelize";
 import { sequelize } from "../Database/database";
 
-const category = sequelize.define("category", {
+const Categories = sequelize.define("Categories", {
 
-    id: {
+    categoriesId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    nombre:{
+    categoriesName:{
         type: DataTypes.STRING
     },
-    imagen:{
+    categoriesImage:{
         type: DataTypes.STRING
     }
 });
 
 
-export { category };
+export { Categories };

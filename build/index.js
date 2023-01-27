@@ -11,9 +11,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("./express");
 const database_1 = require("./Database/database");
-require("./Model/credenciales");
-require("./Model/publicaciones");
-require("./Model/categorias");
+require("./Model/users");
+require("./Model/post");
+require("./Model/categories");
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         yield database_1.sequelize.sync({
